@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H09Form02.html</title>
+</head>
+<body>
+    <!-- 
+        input 태그
+        : form태그의 하위요소로 type속성에 따라 다양한 형태로 만들어져
+        사용자로부터 입력이나 선택을 받을수 있는 태그
+
+        주요속성
+            type : 모양을 나타내는 속성
+                -text : 한줄 입력 상자
+                -password : 패스워드 입력시 입력값이 노출되지 않는 입력상자
+                -checkbox : 여러 항목중 2개 이상의 값을 선택할 수 있는 선택상자
+                -radio : 여러 항목중 1개만 선택할 수 있는 선택상자
+                -hidden : 웹브라우저에는 출력되지 않지만 서버로 값을 전송할 수 있는
+                    입력상자.
+     -->
+    <h2>form태그의 하위요소가 되는 태그들</h2>
+    <h3>input 계열의 type="text"</h3>
+    <!-- 
+        size : 입력상자의 가로크기
+        value : 미리 입력된 값을 설정
+        maxlength : 입력할 수 있는 문자의 최대길이
+        disavled : 비활성화 하기위한 속성으로 입력, 수정을 할 수 없다.
+            또한 서버로 값도 전송할 수 없다. 즉 출력용으로만 사용한다.
+        readonly : 값을 입력, 수정은 할수없지만 서버로 전송할수있다.
+     -->
+    <form name="frm1">
+        기본텍스트상자 : 
+            <input type="text" name="n1" value="홍길동" />
+            <br/><br/>
+        disabled속성 : 
+            <input type="text" name="n2" size="30" maxlength="5" value="속성추가"
+                disabled />
+            <br/><br/>
+        maxlength속성 : <br/><br/>
+            <input type="text" name="jumin1" size="6" maxlength="6"
+            /> -
+            <input type="password" size="7" maxlength="7" />
+            <br/><br/>
+        readonly속성 : 
+            <input type="test" name="homepage" value="http://" readonly />
+        <br/>
+        <br/>
+        <input type="submit" value="서버로 전송하기" />
+    </form>
+    <br/><br/>
+
+    <h3>input태그의 type속성 보기</h3>
+    <form name="frm2"></form>
+        text : <input type="text" size="6"/>
+        <br/><br/>
+        password : <input type="password" size="6"/>
+        <br/><br/>
+        checkbox : <input type="checkbox" name="ch" size="6"/>
+        <br/><br/>
+        radio : <input type="radio" name="ra" size="6"/>
+        <br/><br/>
+        hidden : 화면에 노출되지 않지만 값은 전송됨
+        <input type="hidden" name="hi" value="값이존재하고전송됨" />
+        <br/><br/>
+        <input type="submit" value="전송하기" />
+    </form>
+
+    <!-- 
+        체크박스
+        -여러개의 항목을 선택할 수 있다.
+        -name 속성을 동일하게 지정하여 그룹화한다.
+        -value속성은 미리 지정해야 한다. 별도로 입력할 수 없고, 미리 입력된
+            값을 선택하는 형태이다.
+        -선택한 값만 서버로 전송되고, 서버에서는 배열로 데이터를 받을수있다.
+        -checked : 화면이 로딩될때 미리 체크된 상태를 유지한다.
+     -->
+    <h3>type="checkbox"</h3>
+    <fieldset>
+        <legend>당신의 관심사항은 뭔가요?</legend>
+        <form name="form2">
+            <input type="checkbox" name="inter"
+            value="pol" checked="checked" />정치
+            &nbsp;&nbsp;
+            <input type="checkbox" name="inter"
+            value="ece" />경제
+            &nbsp;&nbsp;
+            <input type="checkbox" name="inter"
+            value="ent" />연예
+            &nbsp;&nbsp;
+            <input type="checkbox" name="inter"
+            value="spo" />스포츠
+            &nbsp;&nbsp;
+
+            <input type="submit" value="체크박스전송" />
+        </form>
+    </fieldset>
+
+    <!-- 
+        라디오
+        -여러 항목중 하나만 선택할 수 있다.
+        -그 외는 checkbox와 동일하다.
+        -만약 name속성이 다르게 지정되면 항목이 그룹화되지 않으므로 여러개를
+            선택할 수 있게된다.
+     -->
+    <h3>type="radio"</h3>
+    <fieldset>
+        <legend>당신의 성별은?</legend>
+        <form name="form3">
+            <input type="radio" name="gender" value="M" checked />남자
+            <input type="radio" name="gender" value="W" />여자
+            <input type="radio" name="gender" value="T" />트랜스젠더
+            <input type="submit" value="라디오전송" />
+        </form>
+    </fieldset>
+
+    <!-- 
+    select
+    -여러개의 목록중 하나를 선택할때 사용하는 태그로 하위에 option태그가 있다.
+    -기본속성은 하나만 선택할 수 있지만, multiple옵션을 부여하면 체크박스처럼
+        여러개의 항목을 선택할 수 있다.
+    -size속성은 몇개의 항목을 노출할지 결정한다.
+    -여러개의 항목을 선택할때는 Drag&Drop하거나 Ctrl키를 누른상태로 클릭하면된다.
+    -selected : 미리 선택된 상태를 유지한다.
+     -->
+    <h3>select태그-하나만선택</h3>
+    <fieldset>
+        <legend>당신의 최종학력은 무엇인가요?</legend>
+
+        <form action="">
+            <!-- select>option*5 -->
+            <select name="grade">
+                <option value="ele">초등학교</option>
+                <option value="mid">중학교</option>
+                <option value="high">고등학교</option>
+                <option value="uni">대학교</option>
+                <option value="uni2">대학원</option>
+            </select>
+            &nbsp;&nbsp;
+            <input type="image" src="./images/button.jpg" />
+        </form>
+    </fieldset>
+
+    <h3>select태그-여러개선택</h3>
+    <fieldset>
+        <legend>당신의 좋아하는 걸그룹은?(다중선택가능)</legend>
+
+        <form action="">
+            <!-- select>option*5 -->
+            <select name="girl_group" multiple size="5">
+                <option value="T">트와이스</option>
+                <option value="M">모모랜드</option>
+                <option value="R">레드밸벳</option>
+                <option value="G">여자친구</option>
+                <option value="B">블랙핑크</option>
+            </select>
+            &nbsp;&nbsp;
+            <input type="image" src="./images/button.jpg" />
+        </form>
+    </fieldset>
+
+    <!-- 
+        file
+        -서버로 전송할 파일선택창을 띄어준다.
+        -전송할 파일의 확장자를 제한하고 싶을때 accept속성을 사용한다.
+        -타입이 file인 경우 value속성이 아무의미가 없으므로 사용하지 않는다.
+        -accept에 둘 이상의 확장자를 기술할때는 콤마로 구분한다.
+     -->
+    <h3>type="file"</h3>
+    기본 : <input type="file" name="userfile1" />
+    <br/>
+    속성추가 : <input type="file" name="userfile2"
+        accept=".gif.jpg" value="첨부파일을추가" />
+    
+    <!-- 
+        textarea
+        -다른 입력태그와는 다르게 value속성을 가지고 있지 않으므로 태그사이에
+            입력하는값이 value가 된다.
+        -코드의 정렬을 위해 태그사이에 불필요한 줄바꿈이나 공백을 주면 화면에
+            그대로 적용되므로 주의해야 한다. textarea는 코드정렬을 하지않는게 좋다.
+        -Javascript에서 textarea에 접근할때 value속성을 통해 입력된 값을 얻어온다.
+     -->
+    <script>
+    //Javascript에서 함수를 선언한다.
+    function textAreaInput(){
+        //단순 경고창을 띄운다.
+        alert('버튼이 눌러졌습니다.');
+        //HTML원소중에서 intra라는 아이디를 가진 항목을 얻어온다.
+        var a = document.getElementById('intro').value;
+        //F12를 눌러 개발자모드의 console에서 확인할 수 있다.
+        console.log('텍스트에어리어', a);
+    }
+    </script>
+
+    <h3>textarea태그</h3>
+    <textarea name="intro" id="intro" cols="70" rows="5">내용은 여기에 입력됩니다.</textarea>
+    <input type="button" value="내용변경" onclick="textAreaInput();">
+
+    <!-- 
+        hidden
+        -웹브라우저에서는 보이지 않으나 서버로 전송이 필요한 경우 사용한다.
+        -주로 회원정보수정, 게시물수정과 같은 페이지에서 사용된다.
+     -->
+    <h3>type="hidden"</h3>
+    <form action="">
+        <input type="hidden" name="member_id" value="kosmo" />
+        <input type="submit" value="hidden값 전송하기" />
+    </form>
+    
+
+</body>
+</html>

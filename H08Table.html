@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H08Table.html</title>
+</head>
+<body>
+    <h2>table 태그</h2>
+    <!-- 
+    RGB컬러참조 : https://www.w3schools.com/css/css_colors_hex.asp
+    RGB는 빛의 3원색으로 Red, Green, Blue로 구분된다. 각 색깔은 0~255까지 256가지
+    색깔을 가지고 있고, 이를 조합해서 모든 색깔을 만들어낼수 있다.
+    방법1 : Color name을 사용한다.
+    방법2 : 16진수 색상코드를 사용한다.
+    방법3 : RGB(정수, 정수, 정수)를 사용한다.
+     -->
+    <h3>table 태그의 속성을 이용한 테이블 디자인</h3>
+    <!-- table>tr*2>td*3 -->
+    <!-- 
+        border : 테이블의 테두리 두께
+        cellpadding : 셀과 컨텐츠 사이의 간격
+        cellspacing : 셀과 셀 사이의 간격
+        bgcolor : 테이블의 배경색
+     -->
+    <table border="10" cellpadding="10" cellspacing="5" 
+        bgcolor="yellow" width=300>
+        <tr>
+            <td bgcolor="#ff0000">가(R)</td>
+            <td bgcolor="#00ff00">나(G)</td>
+            <td bgcolor="#0000ff">다(B)</td>
+        </tr>
+        <tr>
+            <td>라</td>
+            <td>마</td>
+            <td bgcolor="#ffffff"><img src="./images/apple.png" alt="사과" /></td>
+        </tr>
+    </table>
+
+    <h3>CSS속성을 이용한 테이블 디자인</h3>
+    <!-- table>tr*2>td*3 -->
+    <!-- 
+    HTML속성을 CSS속성으로 변경하면
+        border -> 동일함
+        cellpadding -> padding
+        cellspacing -> border-spacing
+        bgcolor -> background-color 로 지정한다.
+     -->
+    <table style="border-spacing:0px; background-color:rgb(255, 161, 0); width:300px;">
+        <tr>
+            <td style="padding:5px; border:1px solid black;">가</td>
+            <td style="padding:5px; border:1px solid blue;">나</td>
+            <td style="padding:5px; border:1px solid red;">다</td>
+        </tr>
+        <tr>
+            <td style="padding:5px; border:1px solid green;">라</td>
+            <td style="padding:5px; border:1px solid purple;">마</td>
+            <td style="padding:5px; border:1px solid skyblue;">
+                <img src="./images/banana.png" alt="바나나" />
+            </td>
+        </tr>
+    </table>
+
+    <h3>셀병합</h3>
+    <!-- table>tr*3>td*3 -->
+    <table border="1" width="300">
+        <tr>
+            <td>1행1열</td>
+            <td>1행2열</td>
+            <td>1행3열</td>
+        </tr>
+        <tr>
+            <td>2행1열</td>
+            <td>2행2열</td>
+            <td>2행3열</td>
+        </tr>
+        <tr>
+            <td>3행1열</td>
+            <td>3행2열</td>
+            <td>3행3열</td>
+        </tr>
+    </table>
+
+    <h4>1행의 3개의 셀을 병합 - colspan속성사용</h4>
+    <!-- table>tr*3>td*3 -->
+    <table border="1" width="300">
+        <tr>
+            <td colspan="3">1행1열</td>
+            <!-- <td>1행2열</td>
+            <td>1행3열</td> -->
+        </tr>
+        <tr>
+            <td>2행1열</td>
+            <td>2행2열</td>
+            <td>2행3열</td>
+        </tr>
+        <tr>
+            <td>3행1열</td>
+            <td colspan="2">3행2열</td>
+            <!-- <td>3행3열</td> -->
+        </tr>
+    </table>
+
+    <h3>2행2열과 3행2열을 병합 - rowspan속성사용</h3>
+    <!-- table>tr*3>td*3 -->
+    <table border="1" width="300">
+        <tr>
+            <td>1행1열</td>
+            <td>1행2열</td>
+            <td>1행3열</td>
+        </tr>
+        <tr>
+            <td>2행1열</td>
+            <td rowspan="2">2행2열</td>
+            <td>2행3열</td>
+        </tr>
+        <tr>
+            <td>3행1열</td>
+            <!-- <td>3행2열</td> -->
+            <td>3행3열</td>
+        </tr>
+    </table>
+
+    <h2>테이블연습 - 오늘의 수입/지출</h2>
+    <!-- HTML속성을 부여할때는 아래와같이 3가지 방법을 모두 사용할 수 있다.
+        더블쿼테이션, 싱글쿼테이션, 속성값만 기술할수 있다. -->
+    <table border=0 cellspacing="1" cellpadding='3' width=500 bgcolor=red>
+        <tr>
+            <td colspan="3" bgcolor="yellow" >오늘의 수입/지출</td>
+            <!-- <td></td>
+            <td></td> -->
+        </tr>
+        <tr>
+            <td bgcolor="pink">내용</td>
+            <td align="center" bgcolor="pink"><strong>수입</strong></td>
+            <td align="center" bgcolor="pink"><strong>지출</strong></td>
+        </tr>
+        <tr align="center">
+            <td bgcolor="white">월급</td>
+            <td bgcolor="white">1,000,000</td>
+            <td bgcolor="white"></td>
+        </tr>
+        <tr>
+            <td bgcolor="white">점심값</td>
+            <td bgcolor="white"></td>
+            <td bgcolor="white">5,000</td>
+        </tr>
+        <tr>
+            <td bgcolor="white">부모님선물</td>
+            <td bgcolor="white"></td>
+            <td bgcolor="white">30,000</td>
+        </tr>
+        <tr>
+            <td align="center" rowspan="3" bgcolor="pink">
+                <strong>총계</strong>
+            </td>
+            <td bgcolor="white">수입</td>
+            <td bgcolor="white">지출</td>
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td bgcolor="white">1,000,000</td>
+            <td bgcolor="white">35,000</td>
+        </tr>
+        <tr>
+            <!-- <td></td> -->
+            <td bgcolor="white">남은돈</td>
+            <td bgcolor="white">965,000</td>
+        </tr>
+    </table>
+
+    <h3>테이블연습 - 오늘의 수입/지출(CSS속성사용)</h3>
+    <table style="background-color:red; width:400px; border-spacing:1px;">
+        <tr style="background-color:yellow;">
+            <td colspan="3">오늘의 수입/지출</td>
+            <!-- <td></td>
+            <td></td> -->
+        </tr>
+        <!-- th태그를 사용하면 가운데정렬과 볼드체가 자동으로 적용된다. -->
+        <tr style="background-color:pink;">
+            <td>내용</td>
+            <td>수입</td>
+            <td>지출</td>
+        </tr>
+        <tr style="background-color:#ffffff; text-align:center;">
+            <td>월급</td>
+            <td>1,000,000</td>
+            <td></td>
+        </tr>
+        <tr style="background-color:#ffffff;">
+            <td style="text-align:center;">점심값</td>
+            <td></td>
+            <td>8,000</td>
+        </tr>
+        <tr style="background-color:#ffffff;">
+            <td style="text-align:center;">부모님선물</td>
+            <td></td>
+            <td>100,000</td>
+        </tr>
+        <tr style="background-color:#ffffff;">
+            <td rowspan="3" style="background-color:pink;
+                text-align:center; font-weight:bold;">총계</td>
+            <td>수입</td>
+            <td>지출</td>
+        </tr>
+        <tr style="background-color:#ffffff;">
+            <!-- <td> rowspan="3" style="background-color:pink;">총계</td> -->
+            <td>1,000,000</td>
+            <td>108,000</td>
+        </tr>
+        <tr style="background-color:#ffffff;">
+            <!-- <td> rowspan="3" style="background-color:pink;">총계</td> -->
+            <td>남은돈</td>
+            <td>892,000</td>
+        </tr> 
+    </table>
+
+    <!-- 
+        테이블의 크기
+        -절대크기 : px로 지정한다. 크기가 변하지 않는다.
+        -상대크기 : %로 지정한다. 이때 웹브라우저의 크기에 따라
+            상대적으로 크기가 조절된다.
+     -->
+    <h3>웹접근성(웹표준)을 고려한 테이블 속성</h3>
+    <table summary="회사 임직원들의 연봉표입니다.(테이블의 요약 설명)"
+        style="text-align:center; width:50%; background-color:red;
+            border-spacing:1px">
+        <!-- 테이블의 제목 -->
+        <caption>직원연봉표</caption>
+        <!-- 의미상 테이블의 타이틀. thead, tbody, tfoot 태그에 의해 테이블의
+        모양이 달라지진 않는다. -->
+        <thead>
+            <!-- tr에 스타일을 적용하면 하위태그인 th에 일괄적으로 적용됨  -->
+            <tr style="background-color:white; height:50px">
+                <!-- td,th태그는 내용을 표현하는 부분이므로 사이즈를 넣는건 부적절하다.  -->
+                <th style="width:15%">번호</th>
+                <th style="width:50%">이름</th>
+                <th>연봉</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background-color:white; height:30px">
+                <td>1</td>
+                <td>김길동</td>
+                <td>3000만원</td>
+            </tr>
+            <tr style="background-color:white; height:30px">
+                <td>2</td>
+                <td>박길동</td>
+                <td>5000만원</td>
+            </tr>
+            <tr style="background-color:white; height:30px">
+                <td>3</td>
+                <td>홍길동</td>
+                <td>2500만원</td>
+            </tr>
+        </tbody>
+        <!-- 결과나 요약된 정보들을 출력한다. -->
+        <tfoot>
+            <tr style="background-color:white; height:30px">
+                <th>총급여</th>
+                <td colspan="2">1억500만원</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h3>colgroup 및 col 태그를 적용한 테이블</h3>
+    <!-- 
+        colgroup, col태그
+        : 테이블을 구성하는 td, th태그는 컨텐츠를 표시하는 부분으로
+        width속성과 같은것들은 해당 태그에 기술하는것이 좋다.
+     -->
+    <table summary="회사 임직원들의 연봉표입니다.(테이블의 요약 설명)"
+        style="text-align:center; width:50%; background-color:red;
+            border-spacing:1px">
+        <!-- 테이블의 제목 -->
+        <caption>직원연봉표</caption>
+        <colgroup>
+            <col width="15%">
+            <col width="*">
+            <col width="30%">
+        </colgroup>
+        <!-- 의미상 테이블의 타이틀. thead, tbody, tfoot 태그에 의해 테이블의
+        모양이 달라지진 않는다. -->
+        <thead>
+            <!-- tr에 스타일을 적용하면 하위태그인 th에 일괄적으로 적용됨  -->
+            <tr style="background-color:white; height:50px">
+                <!-- td,th태그는 내용을 표현하는 부분이므로 사이즈를 넣는건 부적절하다.  -->
+                <th>번호</th>
+                <th>이름</th>
+                <th>연봉</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background-color:white; height:30px">
+                <td>1</td>
+                <td>김길동</td>
+                <td>3000만원</td>
+            </tr>
+            <tr style="background-color:white; height:30px">
+                <td>2</td>
+                <td>박길동</td>
+                <td>5000만원</td>
+            </tr>
+            <tr style="background-color:white; height:30px">
+                <td>3</td>
+                <td>홍길동</td>
+                <td>2500만원</td>
+            </tr>
+        </tbody>
+        <!-- 결과나 요약된 정보들을 출력한다. -->
+        <tfoot>
+            <tr style="background-color:white; height:30px">
+                <th>총급여</th>
+                <td colspan="2">1억500만원</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
